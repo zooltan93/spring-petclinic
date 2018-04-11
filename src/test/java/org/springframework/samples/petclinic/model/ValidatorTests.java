@@ -28,11 +28,13 @@ public class ValidatorTests {
     @Test
     public void shouldNotValidateWhenFirstNameEmpty() {
 
+      // throw new RuntimeException("Intended failure.");
+
         LocaleContextHolder.setLocale(Locale.ENGLISH);
         Person person = new Person();
         person.setFirstName("");
         person.setLastName("smith");
-
+        
         Validator validator = createValidator();
         Set<ConstraintViolation<Person>> constraintViolations = validator
                 .validate(person);
